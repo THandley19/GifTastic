@@ -5,7 +5,6 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-import CardGroup from "react-bootstrap/CardGroup";
 import Button from "react-bootstrap/Button";
 
 export default function Form() {
@@ -49,14 +48,14 @@ export default function Form() {
               <Card style={{ width: "18rem" }}>
                 <Card.Img variant="top" src={gifs.images.fixed_height.url} />
                 <Card.Body>
-                  <Card.Title>Click me to save gif!</Card.Title>
+                  <Card.Title>{gifs.title}</Card.Title>
                 </Card.Body>
                 <Button
                   variant="primary"
                   onClick={handleClick}
                   name={gifs.title}
                   value={gifs.images.fixed_height.url}
-                  id={gifs.id}
+                  id={gifs._id}
                 >
                   Save
                 </Button>

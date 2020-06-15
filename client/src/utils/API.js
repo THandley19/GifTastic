@@ -11,4 +11,10 @@ export default {
   saveGifs: function (query) {
     return axios.post("api/gifs/create-gif", query);
   },
+  getSavedGifs: function () {
+    return axios.get("api/gifs/saved");
+  },
+  deleteGif: function (query) {
+    return axios.delete("api/gifs/" + query);
+  },
 };
