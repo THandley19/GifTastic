@@ -12,4 +12,9 @@ module.exports = {
       .then((gifs) => res.json(gifs))
       .catch((err) => res.status(422).json(err));
   },
+  deleteOne: function (req, res) {
+    db.Gifs.deleteOne({ _id: req.params.id })
+      .then((deletedGif) => res.json(deletedGif))
+      .catch((err) => res.status(422).json(err));
+  },
 };

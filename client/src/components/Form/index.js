@@ -1,69 +1,46 @@
 import React, { useState } from "react";
 import API from "../../utils/API";
 import "./style.css";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Card from "react-bootstrap/Card";
+import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { Redirect } from "react-router-dom";
 
-export default function Form() {
-  const [query, setquery] = useState("");
-  const [gifs, setgifs] = useState([]);
-
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    API.getGifs(query)
-      .then((res) => setgifs(res.data.data))
-      .catch((err) => console.log(err));
-    setquery("");
-  };
-
-  const handleClick = (event) => {
-    const { name, value } = event.target;
-    API.saveGifs({
-      name: name,
-      url: value,
-    })
-      .then((res) => alert("Gif saved successfully!"))
-      .catch((err) => console.log(err));
-  };
-
+export default function Forms({
+  query,
+  handleFormSubmit,
+  handleChange,
+  redirect,
+}) {
+  if (redirect === true) {
+    return <Redirect to="/results" />;
+  }
   return (
     <div>
-      <form>
-        <input
-          type="text"
-          placeholder="enter text"
-          name="query"
-          value={query}
-          onChange={(e) => setquery(e.target.value)}
-        />
-        <input type="submit" onClick={handleFormSubmit} />
-      </form>
-      <Container>
-        <Row>
-          {gifs.map((gifs) => (
-            <Col xs={6} md={4}>
-              <Card style={{ width: "18rem" }}>
-                <Card.Img variant="top" src={gifs.images.fixed_height.url} />
-                <Card.Body>
-                  <Card.Title>{gifs.title}</Card.Title>
-                </Card.Body>
-                <Button
-                  variant="primary"
-                  onClick={handleClick}
-                  name={gifs.title}
-                  value={gifs.images.fixed_height.url}
-                  id={gifs._id}
-                >
-                  Save
-                </Button>
-              </Card>
-            </Col>
-          ))}
-        </Row>
-      </Container>
+      <div
+        className="row justify-content-center"
+        style={{
+          position: "absolute",
+          left: "50%",
+          top: "50%",
+          transform: "translate(-50%, -50%)",
+        }}
+      >
+        <Form>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Giftastic</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter gif topic"
+              name="query"
+              value={query}
+              onChange={handleChange}
+            />
+          </Form.Group>
+          <Button variant="primary" type="submit" onClick={handleFormSubmit}>
+            Show me the gifs
+          </Button>
+        </Form>
+      </div>
     </div>
   );
 }

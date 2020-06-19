@@ -6,4 +6,6 @@ router.post("/create-gif", gifController.saveOne);
 
 router.get("/saved", gifController.getSaved);
 
+router.delete("/:id", gifController.deleteOne);
+
 module.exports = router;

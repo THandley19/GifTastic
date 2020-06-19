@@ -21,7 +21,14 @@ export default class SavedGifs extends Component {
       .catch((err) => console.log(err));
   };
 
-  //   handleDelete = (event) => {};
+  handleDelete = (event) => {
+    API.deleteGif(event.target.id)
+      .then((res) => {
+        window.location.reload(false);
+      })
+      .catch((err) => console.log(err));
+  };
+
   render() {
     console.log(this.state.gifs);
     return (
