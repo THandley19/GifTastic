@@ -5,6 +5,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import dateFormat from "dateformat";
 
 export default class SavedGifs extends Component {
   state = {
@@ -34,9 +35,9 @@ export default class SavedGifs extends Component {
     return (
       <Container>
         {this.state.gifs.length > 0 ? (
-          <h1>Your Saved Gifs:</h1>
+          <h1>Your Favorited Gifs:</h1>
         ) : (
-          <h1>No Saved Gifs</h1>
+          <h1>No Favorited Gifs</h1>
         )}
 
         <Row>
@@ -46,7 +47,9 @@ export default class SavedGifs extends Component {
                 <Card.Img variant="top" src={gifs.url} />
                 <Card.Body>
                   <Card.Title>{gifs.name}</Card.Title>
-                  <Card.Title>Saved on: {gifs.date}</Card.Title>
+                  <Card.Title>
+                    Favorited on: {dateFormat(gifs.date, "mmmm dS, yyyy")}
+                  </Card.Title>
                 </Card.Body>
                 <Button
                   variant="primary"

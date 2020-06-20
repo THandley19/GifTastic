@@ -8,6 +8,7 @@
     "animate.css": "^4.1.0",
     "axios": "^0.18.1",
     "bootstrap": "^4.5.0",
+    "dateformat": "^3.0.3",
     "react": "^16.6.3",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.6.3",
