@@ -16,7 +16,10 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactgifs");
+mongoose.connect(
+  process.env.MONGODB_URI ||
+    "mongodb://GifTastic:_jENQL5xXk8QD_N@ds159348.mlab.com:59348/heroku_bjctn97t"
+);
 
 // Start the API server
 app.listen(PORT, function () {
