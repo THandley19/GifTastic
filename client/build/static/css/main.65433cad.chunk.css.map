@@ -1,0 +1,1 @@
+{"version":3,"sources":["style.css"],"names":[],"mappings":"AAAA,MACE,YAAa,CACb,kBACF","file":"main.65433cad.chunk.css","sourcesContent":[".rowC {\r\n  display: flex;\r\n  flex-direction: row;\r\n}\r\n"]}
