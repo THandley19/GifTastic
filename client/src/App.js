@@ -5,6 +5,8 @@ import Saved from "./pages/SavedGifs";
 import NavBar from "./components/NavBar";
 import Forms from "./components/Form";
 import SearchResults from "./pages/SearchResults";
+import Jumbotron from "./components/Jumbotron";
+import Header from "./components/Jumbotron/index";
 
 export default class App extends Component {
   state = {
@@ -51,13 +53,16 @@ export default class App extends Component {
               exact
               path="/"
               render={(props) => (
-                <Forms
-                  {...props}
-                  handleFormSubmit={this.handleFormSubmit}
-                  handleChange={this.handleChange}
-                  query={this.state.query}
-                  redirect={this.state.redirect}
-                />
+                <div>
+                  <Header />
+                  <Forms
+                    {...props}
+                    handleFormSubmit={this.handleFormSubmit}
+                    handleChange={this.handleChange}
+                    query={this.state.query}
+                    redirect={this.state.redirect}
+                  />
+                </div>
               )}
             />
             <Route

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import API from "../../utils/API";
-import "./style.css";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Redirect } from "react-router-dom";
@@ -16,31 +15,29 @@ export default function Forms({
   }
   return (
     <div>
-      <div
-        className="row justify-content-center"
-        style={{
-          position: "absolute",
-          left: "50%",
-          top: "50%",
-          transform: "translate(-50%, -50%)",
-        }}
-      >
-        <Form>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Giftastic</Form.Label>
+      <Form>
+        <div className="container">
+          <Form.Group>
             <Form.Control
               type="text"
-              placeholder="Enter gif topic"
+              placeholder="Enter a topic to search! Ex. Baseball, Food, Dogs"
               name="query"
               value={query}
               onChange={handleChange}
+              size="lg"
+              className="search-bar"
             />
           </Form.Group>
-          <Button variant="primary" type="submit" onClick={handleFormSubmit}>
+          <Button
+            variant="primary"
+            type="submit"
+            onClick={handleFormSubmit}
+            size="lg"
+          >
             Show me the gifs
           </Button>
-        </Form>
-      </div>
+        </div>
+      </Form>
     </div>
   );
 }
