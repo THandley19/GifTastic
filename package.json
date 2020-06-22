@@ -4,6 +4,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "engines": {
+    "node": "12.13.0",
+    "npm": "6.12.0"
+  },
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "cd client && gh-pages -d build",
