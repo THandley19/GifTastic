@@ -1,6 +1,6 @@
 # Giftastic
 
-Giftastic is an app that allows user to search for Gifs and "favorite" them to view at a later date.
+Giftastic is an app that allows users to search for Gifs and "favorite" them to view at a later date.
 
 ## Tech Used
 
