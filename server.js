@@ -15,13 +15,10 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(
-  "mongodb+srv://AdminDB:GBBnHAMKdIJP3J5k@giftastic.kpyn6.mongodb.net/GifTastic?retryWrites=true&w=majority",
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }
-);
+mongoose.connect(process.env.MONGODB_URI {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 // Start the API server
 app.listen(PORT, function () {
