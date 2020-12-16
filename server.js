@@ -15,10 +15,12 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use(routes);
 
+const pass = process.env.DB.PASS;
+
 // Connect to the Mongo DB
 mongoose.connect(
   process.env.MONGODB_URI ||
-    "mongodb://GifTastic:_jENQL5xXk8QD_N@ds159348.mlab.com:59348/heroku_bjctn97t"
+    `mongodb+srv://AdminDB:${pass}@giftastic.kpyn6.mongodb.net/<GifTastic>?retryWrites=true&w=majority`
 );
 
 // Start the API server
