@@ -1,5 +1,5 @@
+require("dotenv").config();
 const express = require("express");
-
 const mongoose = require("mongoose");
 const routes = require("./routes");
 const app = express();
@@ -15,13 +15,13 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use(routes);
 
-const pass = process.env.DB.PASS;
+const pass = process.env.DB_PASS;
 
 // Connect to the Mongo DB
-mongoose.connect(
-  process.env.MONGODB_URI ||
-    `mongodb+srv://AdminDB:${pass}@giftastic.kpyn6.mongodb.net/<GifTastic>?retryWrites=true&w=majority`
-);
+mongoose.connect(process.env.MONGODB_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 // Start the API server
 app.listen(PORT, function () {
